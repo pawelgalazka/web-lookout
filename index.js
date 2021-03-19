@@ -11,8 +11,8 @@ function timeout(ms) {
   const page = await browser.newPage();
 
   while (true) {
-    for (const { page, test } of config) {
-      await page.goto(page);
+    for (const { url, test } of config) {
+      await page.goto(url);
       const message = await page.evaluate(test);
       if (message) {
         notifier.notify({
