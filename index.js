@@ -10,7 +10,7 @@ function log(msg) {
   console.log(`[${new Date().toLocaleString()}] ${msg}`);
 }
 
-const WAIT_VALUE_IN_SEC = 30;
+const WAIT_VALUE = 5;
 
 (async () => {
   const browser = await puppeteer.launch();
@@ -31,8 +31,8 @@ const WAIT_VALUE_IN_SEC = 30;
       }
     }
 
-    log(`Waiting for ${WAIT_VALUE_IN_SEC} sec`);
-    await timeout(WAIT_VALUE_IN_SEC * 100);
+    log(`Waiting for ${WAIT_VALUE} ${WAIT_VALUE === 1 ? "minute" : "minutes"}`);
+    await timeout(WAIT_VALUE * 60 * 1000);
   }
 
   await browser.close();
